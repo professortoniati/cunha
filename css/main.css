@@ -1,0 +1,11 @@
+/**
+ * main.css - Arquivo Mestre de Estilos do Kit
+ * Carrega a cascata modular com prioridade limpa: Variáveis -> Reset -> Tipografia -> Layout -> Animações -> Componentes
+ */
+
+@import "./variables.css";
+@import "./reset.css";
+@import "./typography.css";
+@import "./layout.css";
+@import "./animations.css";
+@import "./components.css";

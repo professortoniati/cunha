@@ -1,0 +1,167 @@
+/**
+ * layout.css - Grid Moderno, Flexbox e Estruturas de Layout
+ * Implementa CSS Grid com auto-fit minmax, subgrid, container queries e acessibilidade de navegação.
+ */
+
+/* 1. Skip Link de Acessibilidade (Navegação rápida por teclado) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-sm);
+  z-index: 9999;
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-sm);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+/* 2. Utilitário Screen Reader Only (Invisível visualmente, lido por leitores de tela) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 3. Container Responsivo */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--space-md);
+  }
+}
+
+/* 4. Espaçamento de Seções */
+.section {
+  padding-block: var(--space-xl);
+  position: relative;
+}
+
+.section-hero {
+  padding-block: var(--space-2xl) var(--space-xl);
+  min-height: calc(85dvh - var(--header-height));
+  display: flex;
+  align-items: center;
+}
+
+/* 5. Grid Systems Modernos (Auto-responsivos sem media queries redundantes) */
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Auto-fit inteligente: distribui colunas preenchendo o espaço disponível */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-md);
+}
+
+.grid-subgrid {
+  grid-template-rows: subgrid;
+}
+
+/* 6. Utilitários Flexbox */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-xs {
+  gap: var(--space-xs);
+}
+
+.gap-sm {
+  gap: var(--space-sm);
+}
+
+.gap-md {
+  gap: var(--space-md);
+}
+
+.gap-lg {
+  gap: var(--space-lg);
+}
+
+/* 7. Suporte a Container Queries */
+.container-card {
+  container-type: inline-size;
+}
+
+@container (min-width: 450px) {
+  .card-responsive {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

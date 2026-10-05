@@ -1,0 +1,389 @@
+/* ==========================================================================
+   CUNHA SOLUÇÕES — ESTILOS CUSTOMIZADOS E DESIGN SYSTEM
+   Identidade: Vermelho Institucional, Azul Elétrico, Fundo Claro, Alta Conversão
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "./main.css";
+
+:root {
+  /* Paleta Primária Extraída do Logo */
+  --color-primary: #C5161D;
+  --color-primary-dark: #9E0E14;
+  --color-primary-light: #FEE2E2;
+  --color-primary-tint: #FFF5F5;
+  
+  /* Secundária (Raio / Energia) */
+  --color-secondary: #0275D8;
+  --color-secondary-dark: #01549B;
+  --color-secondary-light: #E0F2FE;
+  
+  /* Destaques e Suporte */
+  --color-accent: #F59E0B;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #1EBE5D;
+  
+  /* Superfícies e Textos (Tema Claro) */
+  --color-bg-main: #FFFFFF;
+  --color-bg-alt: #F8FAFC;
+  --color-bg-soft: #F1F5F9;
+  --color-border: #E2E8F0;
+  --color-border-hover: #CBD5E1;
+  --color-text-main: #0F172A;
+  --color-text-muted: #64748B;
+  --color-text-subtle: #94A3B8;
+  
+  /* Sombras Harmoniosas */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-glow-red: 0 0 25px -5px rgba(197, 22, 29, 0.35);
+  --shadow-glow-blue: 0 0 25px -5px rgba(2, 117, 216, 0.35);
+  
+  /* Tipografia */
+  --font-display: 'Outfit', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Reset Suave & Tipografia */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
+/* Scrollbar Personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Header & Navbar Efeitos */
+.navbar-scrolled {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Animações e Microinterações */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes radar {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+.animate-radar {
+  animation: radar 2s infinite;
+}
+
+/* Efeito de Card Premium */
+.card-hover-effect {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-border);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(197, 22, 29, 0.25);
+}
+
+.card-hover-blue:hover {
+  border-color: rgba(2, 117, 216, 0.35);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Badges e Destaques */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-red {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+.badge-blue {
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary-dark);
+}
+
+/* Botões Customizados */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 0.625rem;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px 0 rgba(197, 22, 29, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(197, 22, 29, 0.45);
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--color-text-main);
+  border: 1.5px solid var(--color-border);
+  font-weight: 600;
+  border-radius: 0.625rem;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-secondary);
+  color: var(--color-secondary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background-color: var(--color-whatsapp);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 0.625rem;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px 0 rgba(37, 211, 102, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--color-whatsapp-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(37, 211, 102, 0.45);
+}
+
+/* Accordion FAQ Moderno */
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background-color: #FFFFFF;
+  transition: all 0.25s ease;
+}
+
+.faq-item.active {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, padding 0.3s ease;
+  opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.45s ease-in-out, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+/* Formulário de Orçamento Estilizado */
+.form-input {
+  width: 100%;
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.625rem;
+  padding: 0.75rem 1rem;
+  background-color: #FFFFFF;
+  color: var(--color-text-main);
+  transition: all 0.2s ease;
+  font-size: 0.9375rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(197, 22, 29, 0.15);
+}
+
+.form-input.error {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+/* Chip Radios e Checkboxes do Form */
+.checkbox-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.625rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #FFFFFF;
+  user-select: none;
+}
+
+.checkbox-card:hover {
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-border-hover);
+}
+
+.checkbox-card input[type="checkbox"]:checked ~ span {
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.checkbox-card.checked {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-tint);
+}
+
+/* Botão Flutuante do WhatsApp */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 9999px;
+  background-color: var(--color-whatsapp);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+  background-color: var(--color-whatsapp-dark);
+}
+
+.floating-whatsapp-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  white-space: nowrap;
+  background: rgba(15, 23, 42, 0.9);
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-lg);
+}
+
+.floating-whatsapp:hover .floating-whatsapp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Utilitários Visuais */
+.pattern-grid {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.pattern-dots-red {
+  background-image: radial-gradient(rgba(197, 22, 29, 0.08) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+.gradient-hero {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 60%, #F1F5F9 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, rgba(197, 22, 29, 0.04) 0%, rgba(2, 117, 216, 0.04) 100%);
+}
+
+/* Foco Acessível (WCAG) */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* Documentação de Acessibilidade e Formulários: <label aria-label placeholder> */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

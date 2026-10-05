@@ -1,0 +1,108 @@
+/**
+ * reset.css - Modern CSS Reset (2026 Edition)
+ * Focado em consistência cross-browser, prevenção de CLS, acessibilidade e performance.
+ */
+
+/* 1. Box sizing universal para previsibilidade de layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Suporte a rolagem suave com respeito estrito a acessibilidade */
+@media (prefers-reduced-motion: no-preference) {
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+/* 3. Configurações fundamentais da raiz e do corpo */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* 4. Elementos de mídia e embeds responsivos com prevenção de CLS */
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  max-width: 100%;
+}
+
+/* 5. Herança consistente de tipografia em formulários */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 6. Acessibilidade de foco: Foco visível padronizado e inegociável */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* 7. Remoção de estilos de lista semântica quando role="list" */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* 8. Links sem decorações quebradas */
+a {
+  color: inherit;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+}
+
+/* 9. Elementos de tabela */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 10. Diálogos nativos com backdrop */
+dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
